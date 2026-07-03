@@ -1,0 +1,15 @@
+<button class="start" [class.hidden]="this.raceStarted()" (click)="startRace()"></button>
+
+<div class="fence background" [class.animating]="this.raceStarted()"></div>
+
+<div class="race-track">
+  <h4c-horse [variant]="1" [running]="this.raceStarted()"></h4c-horse>
+  <h4c-horse [variant]="1" [running]="this.raceStarted()"></h4c-horse>
+  <h4c-horse [variant]="2" [running]="this.raceStarted()"></h4c-horse>
+  <h4c-horse [variant]="1" [running]="this.raceStarted()"></h4c-horse>
+  <h4c-horse [variant]="2" [running]="this.raceStarted()"></h4c-horse>
+</div>
+
+<div class="fence foreground" [class.animating]="this.raceStarted()"></div>
+
+<img src="/finish.png" class="finish-flag hidden"/>

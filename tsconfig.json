@@ -13,7 +13,12 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "ES2022",
-    "module": "preserve"
+    "module": "preserve",
+    "paths": {
+      "ui-components": [
+        "./dist/ui-components"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
@@ -21,5 +26,19 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   },
-  "files": []
+  "files": [],
+  "references": [
+    {
+      "path": "./projects/ui-components/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/ui-components/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/horses-4-courses-game/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/horses-4-courses-game/tsconfig.spec.json"
+    }
+  ]
 }
