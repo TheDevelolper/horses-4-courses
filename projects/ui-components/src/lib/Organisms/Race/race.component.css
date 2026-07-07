@@ -1,12 +1,9 @@
-
 .racecourse {
   background: rgb(122, 163, 122);
   height: 20rem;
-  width: 100%
+  width: 100%;
 }
 
-
-
 .race-participant {
-   transition: left 1s ease-in-out;
+  transition: left 1s ease-in-out;
 }

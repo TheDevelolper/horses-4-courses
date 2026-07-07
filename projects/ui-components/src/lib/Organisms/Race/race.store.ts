@@ -29,25 +29,41 @@ const initialState: RaceState = {
   started: false,
 };
 
+let participantMovementInterval: NodeJS.Timeout;
+
 export const RaceStore = signalStore(
   { providedIn: 'root', protectedState: false },
   withState(initialState),
   withMethods((store) => ({
     startRace() {
-      console.log("Race Started!")
+      if (store.started()) return;
+      console.trace('startRace');
       patchState(store, {
-        started: true
+        started: true,
       });
 
-      setInterval(()=>{
+      participantMovementInterval = setInterval(() => {
         patchState(store, {
           participants: store.participants().map((p) => ({
-                ...p,
-                xpos: Math.random() * 50,
-              }))
-            });
-          }, 2000);
-
+            ...p,
+            xpos: Math.random() * 40,
+          })),
+        });
+      }, 1000);
     },
-  })));
 
+    stopRace() {
+      if (store.started() === false) return;
+
+      console.trace('Race Stopped');
+      clearInterval(participantMovementInterval);
+      patchState(store, {
+        started: false,
+        participants: store.participants().map((p) => ({
+          ...p,
+          xpos: 0,
+        })),
+      });
+    },
+  })),
+);

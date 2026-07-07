@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { AfterContentInit, Component, ElementRef, input, OnInit, ViewChild } from '@angular/core';
+
 @Component({
   selector: 'ui-racecourse',
   standalone: true,
@@ -12,22 +13,18 @@ export class RacecourseComponent implements AfterContentInit {
   content!: ElementRef<HTMLDivElement>;
 
   ngAfterContentInit(): void {
-    this.placeParticipants()
+    this.placeParticipants();
   }
 
   private placeParticipants() {
-
     const children = this.content.nativeElement.children as HTMLCollectionOf<HTMLElement>;
 
-    for(let idx = 0; idx < children.length; idx++) {
+    for (let idx = 0; idx < children.length; idx++) {
       const element = children[idx] as HTMLElement;
       const verticalOffsetPx = 30;
-      console.log(element)
       element.style.position = 'absolute';
-      element.style.top = `${((idx) * verticalOffsetPx)}px`;
+      element.style.top = `${idx * verticalOffsetPx}px`;
       element.style.left = '0';
     }
-
-
   }
 }
