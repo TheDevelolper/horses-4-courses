@@ -55,7 +55,7 @@ audio {
 }
 
 button.start {
-  background: url(start.png) no-repeat center;
+  background: url(../../public/start.png) no-repeat center;
   background-size: contain;
   position: absolute;
   z-index: 100;
