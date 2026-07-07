@@ -1,15 +1,5 @@
-<button class="start" [class.hidden]="this.raceStarted()" (click)="startRace()"></button>
-
-<div class="fence background" [class.animating]="this.raceStarted()"></div>
-
-<div class="race-track">
-  <ui-horse [number]="1" [running]="this.raceStarted()"></ui-horse>
-  <ui-horse [number]="1" [running]="this.raceStarted()"></ui-horse>
-  <ui-horse [number]="2" [running]="this.raceStarted()"></ui-horse>
-  <ui-horse [number]="1" [running]="this.raceStarted()"></ui-horse>
-  <ui-horse [number]="2" [running]="this.raceStarted()"></ui-horse>
+<button class="start" [class.hidden]="this.raceStore.started()" (click)="startRace()"></button>
+<div class="race-container">
+  <ui-race> </ui-race>
 </div>
-
-<div class="fence foreground" [class.animating]="this.raceStarted()"></div>
-
-<img src="/finish.png" class="finish-flag hidden"/>
+<img src="/finish.png" class="finish-flag hidden" />

@@ -78,6 +78,10 @@
               {
                 "glob": "**/*",
                 "input": "projects/horses-4-courses-game/public"
+              },
+              {
+                "glob": "**/*",
+                "input": "projects/ui-components/src/assetsc"
               }
             ],
             "styles": [

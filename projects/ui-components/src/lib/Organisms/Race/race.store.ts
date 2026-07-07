@@ -16,7 +16,7 @@ type RaceParticipant = {
 const participants = [1, 2, 3, 4, 5].map<RaceParticipant>((x) => ({
   id: x,
   number: x,
-  xpos: 0,
+  xpos: 20,
   type: HorseComponent,
 }));
 
@@ -29,7 +29,7 @@ const initialState: RaceState = {
   started: false,
 };
 
-let participantMovementInterval: NodeJS.Timeout;
+let participantMovementInterval: any;
 
 export const RaceStore = signalStore(
   { providedIn: 'root', protectedState: false },
@@ -48,7 +48,7 @@ export const RaceStore = signalStore(
         patchState(store, {
           participants: store.participants().map((p) => ({
             ...p,
-            xpos: Math.random() * 50,
+            xpos: Math.random() * 25 + 20,
           })),
         });
       }, 1000);

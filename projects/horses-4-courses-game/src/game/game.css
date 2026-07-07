@@ -1,4 +1,4 @@
-.race-track {
+/* .race-track {
   margin-top: 20rem;
   display: flex;
   flex-direction: column;
@@ -46,19 +46,23 @@ audio {
   }
 
   to {
-    background-position-x: -40rem; /* width of one tile */
+    background-position-x: -40rem;
   }
+} */
+
+.race-container {
+  margin-top: 10rem;
 }
 
 button.start {
   background: url(/start.png) no-repeat center;
   background-size: contain;
   position: absolute;
-
+  z-index: 100;
   display: grid;
   place-items: center;
 
-  top: -5rem;
+  top: 5rem;
   left: 50%;
   transform: translateX(-50%);
   width: clamp(10rem, 20vw, 20rem);

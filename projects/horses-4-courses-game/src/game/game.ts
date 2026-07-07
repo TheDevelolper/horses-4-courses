@@ -1,15 +1,19 @@
-import { Component, effect, signal } from '@angular/core';
-import { HorseComponent } from 'ui-components';
+import { Component, effect, inject, signal } from '@angular/core';
+import { RaceComponent, RaceStore } from 'ui-components';
 
 @Component({
   selector: 'h4c-game',
-  imports: [HorseComponent],
+  providers: [RaceStore],
+  imports: [RaceComponent],
   templateUrl: './game.html',
   styleUrl: './game.css',
 })
 export class Game {
-  public raceStarted = signal(false);
-  public racing = signal(false);
+  // public raceStarted = signal(false);
+  // public racing = signal(false);
+
+  public raceStore = inject(RaceStore);
+
   private audioTrack = new Audio('/wto.mp3');
   private finishing = signal(false);
   private finishingSquenceSeconds = 3;
@@ -19,16 +23,19 @@ export class Game {
     this.audioTrack.preload = 'auto';
 
     effect(() => {
-      if (this.raceStarted() && this.racing() === false) {
-        this.racing.set(true);
+      if (this.raceStore.started()) {
         this.audioTrack.play().catch((err) => console.error(err));
-        this.audioTrack.addEventListener('timeupdate', this.onAudioTimerUpdate);
       }
+
+      // if (this.raceStarted() && this.racing() === false) {
+      //   this.racing.set(true);
+      //   this.audioTrack.play().catch((err) => console.error(err));
+      //   this.audioTrack.addEventListener('timeupdate', this.onAudioTimerUpdate);
+      // }
     });
   }
 
-  private onAudioTimerUpdate = async () =>
-  {
+  private onAudioTimerUpdate = async () => {
     if (this.finishing() || !this.audioTrack.duration) {
       return;
     }
@@ -37,19 +44,18 @@ export class Game {
       this.audioTrack.currentTime + this.finishingSquenceSeconds > this.raceDuration;
 
     if (shouldFinish) {
-
       this.finishing.set(true);
       await this.finishSequence();
     }
-  }
+  };
 
   public async finishSequence() {
-    await this.fadeOutAudio(this.audioTrack, (this.finishingSquenceSeconds) * 1000);
+    await this.fadeOutAudio(this.audioTrack, this.finishingSquenceSeconds * 1000);
     this.stopRace();
   }
 
   public stopRace() {
-    this.raceStarted.set(false);
+    this.raceStore.stopRace();
     this.finishing.set(false);
     this.audioTrack.pause();
     this.audioTrack.currentTime = 0;
@@ -57,10 +63,9 @@ export class Game {
   }
 
   public startRace() {
-    this.racing.set(false);
+    this.raceStore.startRace();
     this.audioTrack.volume = 1;
     this.audioTrack.currentTime = 0;
-    this.raceStarted.set(true);
   }
 
   public fadeOutAudio(audio: HTMLAudioElement, duration: number): Promise<void> {
@@ -91,7 +96,4 @@ export class Game {
       requestAnimationFrame(step);
     });
   }
-
 }
-
-
