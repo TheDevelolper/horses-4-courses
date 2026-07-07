@@ -27,7 +27,7 @@
 
   height: 10rem;
   width: 100%;
-  background-image: url('/fence.png');
+  background-image: url('fence.png');
   background-size: 20rem 5rem;
   background-repeat: repeat-x;
   background-position-x: 0;

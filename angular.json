@@ -81,7 +81,7 @@
               },
               {
                 "glob": "**/*",
-                "input": "projects/ui-components/src/assetsc"
+                "input": "projects/ui-components/src/assets"
               }
             ],
             "styles": [
