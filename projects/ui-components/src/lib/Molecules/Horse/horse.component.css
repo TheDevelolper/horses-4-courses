@@ -1,15 +1,11 @@
-
-
 .horse {
-    margin-top: -10rem;
-    width: 16rem;
-    aspect-ratio: 1.1/1;
-    transition: margin-left 1s ease-in-out;
+	/* Add your styles for Horse component here */
+  width: 10rem;
+  aspect-ratio: 1.1/1;
 }
 
 .running {
   animation: horse-wobble 0.35s ease-in-out infinite;
-
 }
 
 @keyframes horse-wobble {
