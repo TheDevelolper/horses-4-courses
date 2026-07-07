@@ -1,0 +1,18 @@
+
+<div class="race">
+  <ui-racecourse>
+    @for(participant of raceStore.participants(); track participant.id) {
+      <div class="race-participant" [style.left]="`${participant.xpos}%`">
+        @switch(participant.type) {
+          @case(HorseComponent) {
+            <ui-horse
+              [number]="participant.number"
+              [running]="raceStore.started()"
+              >
+            </ui-horse>
+          }
+        }
+      </div>
+    }
+  </ui-racecourse>
+</div>

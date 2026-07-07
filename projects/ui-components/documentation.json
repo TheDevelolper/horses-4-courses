@@ -11,6 +11,39 @@
     "miscellaneous": {
         "variables": [
             {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/lib/Molecules/Horse/horse.component.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  argTypes: {\n     running: {\n      control: {\n        type: \"boolean\"\n      }\n    },\n    number: {\n      control: {\n        type: 'number', min:1, max:7, step: 1\n      } }\n  },\n\targs: {\n    number: 1\n  },\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/lib/Molecules/Racecourse/racecourse.component.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n    args: {\n      // horses,\n    }\n\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/lib/Organisms/Race/race.component.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n    args: {\n\n    }\n\n}"
+            },
+            {
                 "name": "Large",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -99,6 +132,39 @@
                 "defaultValue": "{\n  title: 'Example/Page',\n  component: PageComponent,\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n}"
             },
             {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/lib/Molecules/Horse/horse.component.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<HorseComponent>",
+                "defaultValue": "{\n\ttitle: 'Molecules/Horse',\n\tcomponent: HorseComponent,\n\tparameters: {\n\t\tlayout: 'centered',\n\t},\n\ttags: ['autodocs'],\n} satisfies Meta<HorseComponent>"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/lib/Molecules/Racecourse/racecourse.component.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<RacecourseComponent>",
+                "defaultValue": "{\n\ttitle: 'Molecules/Racecourse',\n\tcomponent: RacecourseComponent,\n\tparameters: {\n\t},\n\ttags: ['autodocs'],\n} satisfies Meta<RacecourseComponent>"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/lib/Organisms/Race/race.component.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<RaceComponent>",
+                "defaultValue": "{\n\ttitle: 'Organisms/Race',\n\tcomponent: RaceComponent,\n\tparameters: {\n\t},\n\ttags: ['autodocs'],\n} satisfies Meta<RaceComponent>"
+            },
+            {
                 "name": "preview",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -119,6 +185,17 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    primary: true,\n    label: 'Button',\n  },\n}"
+            },
+            {
+                "name": "Running",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/lib/Molecules/Horse/horse.component.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n\targs: {\n    running: true,\n    number: 5\n  },\n}"
             },
             {
                 "name": "Secondary",
@@ -183,10 +260,132 @@
                 "rawdescription": "",
                 "description": "",
                 "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "coverageIgnore": false,
+                "rawtype": "StoryObj<HorseComponent>",
+                "file": "projects/ui-components/src/lib/Molecules/Horse/horse.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "rawdescription": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "coverageIgnore": false,
+                "rawtype": "StoryObj<RacecourseComponent>",
+                "file": "projects/ui-components/src/lib/Molecules/Racecourse/racecourse.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "rawdescription": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "coverageIgnore": false,
+                "rawtype": "StoryObj<RaceComponent>",
+                "file": "projects/ui-components/src/lib/Organisms/Race/race.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "rawdescription": "",
+                "description": "",
+                "kind": 184
             }
         ],
         "enumerations": [],
         "groupedVariables": {
+            "projects/ui-components/src/lib/Molecules/Horse/horse.component.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/lib/Molecules/Horse/horse.component.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  argTypes: {\n     running: {\n      control: {\n        type: \"boolean\"\n      }\n    },\n    number: {\n      control: {\n        type: 'number', min:1, max:7, step: 1\n      } }\n  },\n\targs: {\n    number: 1\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/lib/Molecules/Horse/horse.component.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<HorseComponent>",
+                    "defaultValue": "{\n\ttitle: 'Molecules/Horse',\n\tcomponent: HorseComponent,\n\tparameters: {\n\t\tlayout: 'centered',\n\t},\n\ttags: ['autodocs'],\n} satisfies Meta<HorseComponent>"
+                },
+                {
+                    "name": "Running",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/lib/Molecules/Horse/horse.component.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n\targs: {\n    running: true,\n    number: 5\n  },\n}"
+                }
+            ],
+            "projects/ui-components/src/lib/Molecules/Racecourse/racecourse.component.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/lib/Molecules/Racecourse/racecourse.component.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n    args: {\n      // horses,\n    }\n\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/lib/Molecules/Racecourse/racecourse.component.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<RacecourseComponent>",
+                    "defaultValue": "{\n\ttitle: 'Molecules/Racecourse',\n\tcomponent: RacecourseComponent,\n\tparameters: {\n\t},\n\ttags: ['autodocs'],\n} satisfies Meta<RacecourseComponent>"
+                }
+            ],
+            "projects/ui-components/src/lib/Organisms/Race/race.component.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/lib/Organisms/Race/race.component.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n    args: {\n\n    }\n\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/lib/Organisms/Race/race.component.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<RaceComponent>",
+                    "defaultValue": "{\n\ttitle: 'Organisms/Race',\n\tcomponent: RaceComponent,\n\tparameters: {\n\t},\n\ttags: ['autodocs'],\n} satisfies Meta<RaceComponent>"
+                }
+            ],
             "projects/ui-components/src/stories/button.stories.ts": [
                 {
                     "name": "Large",
@@ -375,6 +574,51 @@
                     "description": "",
                     "kind": 184
                 }
+            ],
+            "projects/ui-components/src/lib/Molecules/Horse/horse.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "coverageIgnore": false,
+                    "rawtype": "StoryObj<HorseComponent>",
+                    "file": "projects/ui-components/src/lib/Molecules/Horse/horse.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/ui-components/src/lib/Molecules/Racecourse/racecourse.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "coverageIgnore": false,
+                    "rawtype": "StoryObj<RacecourseComponent>",
+                    "file": "projects/ui-components/src/lib/Molecules/Racecourse/racecourse.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/ui-components/src/lib/Organisms/Race/race.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "coverageIgnore": false,
+                    "rawtype": "StoryObj<RaceComponent>",
+                    "file": "projects/ui-components/src/lib/Organisms/Race/race.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "",
+                    "description": "",
+                    "kind": 184
+                }
             ]
         }
     },
@@ -393,6 +637,106 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "preview",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/lib/Molecules/Horse/horse.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/lib/Molecules/Horse/horse.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/lib/Molecules/Horse/horse.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Running",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/lib/Molecules/Horse/horse.component.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/lib/Molecules/Racecourse/racecourse.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/lib/Molecules/Racecourse/racecourse.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/lib/Molecules/Racecourse/racecourse.component.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/lib/Organisms/Race/race.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/lib/Organisms/Race/race.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/lib/Organisms/Race/race.component.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
