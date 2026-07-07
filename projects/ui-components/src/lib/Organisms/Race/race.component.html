@@ -1,7 +1,11 @@
 <div class="race">
-  <ui-racecourse>
-    @for (participant of raceStore.participants(); track participant.id) {
-      <div class="race-participant" [style.left]="`${participant.xpos}%`">
+  <ui-racecourse [moving]="raceStore.started()">
+    @for (participant of raceStore.participants(); track participant.id; let idx = $index) {
+      <div
+        class="race-participant"
+        [style.top]="`${20 * idx}px`"
+        [style.left]="`${participant.xpos}%`"
+      >
         @switch (participant.type) {
           @case (HorseParticipant) {
             <ui-horse [number]="participant.number" [running]="raceStore.started()"> </ui-horse>

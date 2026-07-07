@@ -5,5 +5,7 @@
 }
 
 .race-participant {
+  position: absolute;
+  left: 50%;
   transition: left 1s ease-in-out;
 }

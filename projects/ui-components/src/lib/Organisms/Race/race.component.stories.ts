@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/angular';
-import { Component, effect, inject, input } from '@angular/core';
+import { Component, effect, inject, input, untracked } from '@angular/core';
 import { moduleMetadata } from '@storybook/angular';
 
 import { RaceComponent } from './race.component';
@@ -18,11 +18,13 @@ class StoryHostComponent {
 
   constructor() {
     effect(() => {
-      if (this.racing()) {
-        this.store.startRace();
-      } else {
-        this.store.stopRace();
-      }
+      untracked(() => {
+        if (this.racing()) {
+          this.store.startRace();
+        } else {
+          this.store.stopRace();
+        }
+      });
     });
   }
 }

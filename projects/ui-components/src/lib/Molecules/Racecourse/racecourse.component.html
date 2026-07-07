@@ -1,5 +1,7 @@
+<div class="fence background" [class.animating]="this.moving()"></div>
+
 <div class="racecourse" #content>
-    <ng-content></ng-content>
+  <ng-content></ng-content>
 </div>
 
-
+<div class="fence foreground" [class.animating]="this.moving()"></div>

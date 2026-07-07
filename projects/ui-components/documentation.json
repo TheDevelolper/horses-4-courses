@@ -9,7 +9,7 @@
     "components": [
         {
             "name": "StoryHostComponent",
-            "id": "component-StoryHostComponent-169b6dd923c8fb0224baa8d1d9f10b1d5013e179996f0cd18b6ace70543fb322cc94da6589942f2e296c635f796aa8fbb85865595fafb98ab2800fe12ec52ae6",
+            "id": "component-StoryHostComponent-63b0966a1c29679c0da2ea8c2beb05a738952260b6d6c06812aa9cba778409991477341126cdb8c07292acdcc3bcea454c0f7c9660365271b80c769dd1e39e3f",
             "file": "projects/ui-components/src/lib/Organisms/Race/race.component.stories.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -76,7 +76,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import type { Meta, StoryObj } from '@storybook/angular';\nimport { Component, effect, inject, input } from '@angular/core';\nimport { moduleMetadata } from '@storybook/angular';\n\nimport { RaceComponent } from './race.component';\nimport { RaceStore } from './race.store';\n\n@Component({\n  selector: 'storybook-race-host',\n  standalone: true,\n  imports: [RaceComponent],\n  template: `<ui-race />`,\n})\nclass StoryHostComponent {\n  racing = input(false);\n\n  private readonly store = inject(RaceStore);\n\n  constructor() {\n    effect(() => {\n      if (this.racing()) {\n        this.store.startRace();\n      } else {\n        this.store.stopRace();\n      }\n    });\n  }\n}\n\nconst meta: Meta = {\n  title: 'Organisms/Race',\n\n  decorators: [\n    moduleMetadata({\n      imports: [StoryHostComponent],\n    }),\n  ],\n\n  render: (args) => ({\n    props: args,\n    template: `\n      <storybook-race-host\n        [racing]=\"racing\">\n      </storybook-race-host>\n    `,\n  }),\n\n  argTypes: {\n    racing: {\n      control: 'boolean',\n    },\n  },\n\n  args: {\n    racing: false,\n  },\n\n  tags: ['autodocs'],\n};\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\nexport const Default: Story = {};\n",
+            "sourceCode": "import type { Meta, StoryObj } from '@storybook/angular';\nimport { Component, effect, inject, input, untracked } from '@angular/core';\nimport { moduleMetadata } from '@storybook/angular';\n\nimport { RaceComponent } from './race.component';\nimport { RaceStore } from './race.store';\n\n@Component({\n  selector: 'storybook-race-host',\n  standalone: true,\n  imports: [RaceComponent],\n  template: `<ui-race />`,\n})\nclass StoryHostComponent {\n  racing = input(false);\n\n  private readonly store = inject(RaceStore);\n\n  constructor() {\n    effect(() => {\n      untracked(() => {\n        if (this.racing()) {\n          this.store.startRace();\n        } else {\n          this.store.stopRace();\n        }\n      });\n    });\n  }\n}\n\nconst meta: Meta = {\n  title: 'Organisms/Race',\n\n  decorators: [\n    moduleMetadata({\n      imports: [StoryHostComponent],\n    }),\n  ],\n\n  render: (args) => ({\n    props: args,\n    template: `\n      <storybook-race-host\n        [racing]=\"racing\">\n      </storybook-race-host>\n    `,\n  }),\n\n  argTypes: {\n    racing: {\n      control: 'boolean',\n    },\n  },\n\n  args: {\n    racing: false,\n  },\n\n  tags: ['autodocs'],\n};\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\nexport const Default: Story = {};\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -124,7 +124,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n    args: {\n      // horses,\n    }\n\n}"
+                "defaultValue": "{\n  args: {\n    moving: false,\n  },\n}"
             },
             {
                 "name": "Default",
@@ -157,7 +157,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<RacecourseComponent>",
-                "defaultValue": "{\n\ttitle: 'Molecules/Racecourse',\n\tcomponent: RacecourseComponent,\n\tparameters: {\n\t},\n\ttags: ['autodocs'],\n} satisfies Meta<RacecourseComponent>"
+                "defaultValue": "{\n  title: 'Molecules/Racecourse',\n  component: RacecourseComponent,\n  parameters: {},\n  tags: ['autodocs'],\n} satisfies Meta<RacecourseComponent>"
             },
             {
                 "name": "meta",
@@ -282,7 +282,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n    args: {\n      // horses,\n    }\n\n}"
+                    "defaultValue": "{\n  args: {\n    moving: false,\n  },\n}"
                 },
                 {
                     "name": "meta",
@@ -293,7 +293,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<RacecourseComponent>",
-                    "defaultValue": "{\n\ttitle: 'Molecules/Racecourse',\n\tcomponent: RacecourseComponent,\n\tparameters: {\n\t},\n\ttags: ['autodocs'],\n} satisfies Meta<RacecourseComponent>"
+                    "defaultValue": "{\n  title: 'Molecules/Racecourse',\n  component: RacecourseComponent,\n  parameters: {},\n  tags: ['autodocs'],\n} satisfies Meta<RacecourseComponent>"
                 }
             ],
             "projects/ui-components/src/lib/Organisms/Race/race.component.stories.ts": [

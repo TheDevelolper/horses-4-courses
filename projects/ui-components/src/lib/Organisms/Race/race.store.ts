@@ -13,7 +13,7 @@ type RaceParticipant = {
   type: RaceParticipantType;
 };
 
-const participants = [1, 2, 3, 4, 5, 6, 7].map<RaceParticipant>((x) => ({
+const participants = [1, 2, 3, 4, 5].map<RaceParticipant>((x) => ({
   id: x,
   number: x,
   xpos: 0,
@@ -37,7 +37,9 @@ export const RaceStore = signalStore(
   withMethods((store) => ({
     startRace() {
       if (store.started()) return;
+
       console.trace('startRace');
+
       patchState(store, {
         started: true,
       });
@@ -46,7 +48,7 @@ export const RaceStore = signalStore(
         patchState(store, {
           participants: store.participants().map((p) => ({
             ...p,
-            xpos: Math.random() * 40,
+            xpos: Math.random() * 50,
           })),
         });
       }, 1000);
@@ -56,7 +58,9 @@ export const RaceStore = signalStore(
       if (store.started() === false) return;
 
       console.trace('Race Stopped');
+
       clearInterval(participantMovementInterval);
+
       patchState(store, {
         started: false,
         participants: store.participants().map((p) => ({

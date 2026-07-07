@@ -1,5 +1,43 @@
 .racecourse {
+  z-index: 20;
+  position: relative;
+  margin-top: -5.5rem;
   background: rgb(122, 163, 122);
-  height: 20rem;
-  width: 100%
+  height: 14rem;
+  width: 100%;
+}
+
+.fence {
+  position: relative;
+  &.foreground {
+    z-index: 20;
+    margin-top: -5rem;
+    &.animating {
+      animation: scrollFence 1.5s linear infinite;
+    }
+  }
+
+  &.background {
+    z-index: 10;
+    margin-top: -2rem;
+    &.animating {
+      animation: scrollFence 2s linear infinite;
+    }
+  }
+
+  height: 10rem;
+  width: 100%;
+  background-image: url('/fence.png');
+  background-size: 20rem 5rem;
+  background-repeat: repeat-x;
+  background-position-x: 0;
+}
+
+@keyframes scrollFence {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -40rem; /* width of one tile */
+  }
 }

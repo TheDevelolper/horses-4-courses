@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { AfterContentInit, Component, ElementRef, input, OnInit, ViewChild } from '@angular/core';
+import { AfterContentInit, Component, ElementRef, input, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'ui-racecourse',
@@ -11,6 +11,7 @@ import { AfterContentInit, Component, ElementRef, input, OnInit, ViewChild } fro
 export class RacecourseComponent implements AfterContentInit {
   @ViewChild('content', { static: true })
   content!: ElementRef<HTMLDivElement>;
+  public moving = input(false);
 
   ngAfterContentInit(): void {
     this.placeParticipants();
@@ -22,9 +23,7 @@ export class RacecourseComponent implements AfterContentInit {
     for (let idx = 0; idx < children.length; idx++) {
       const element = children[idx] as HTMLElement;
       const verticalOffsetPx = 30;
-      element.style.position = 'absolute';
-      element.style.top = `${idx * verticalOffsetPx}px`;
-      element.style.left = '0';
+      element.style.top = `${idx * verticalOffsetPx - verticalOffsetPx}px `;
     }
   }
 }
