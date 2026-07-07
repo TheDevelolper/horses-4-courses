@@ -1,9 +1,9 @@
 import { Component, effect, signal } from '@angular/core';
-import { Horse } from '../horse/horse';
+import { HorseComponent } from 'ui-components';
 
 @Component({
   selector: 'h4c-game',
-  imports: [Horse],
+  imports: [HorseComponent],
   templateUrl: './game.html',
   styleUrl: './game.css',
 })
@@ -43,7 +43,6 @@ export class Game {
     }
   }
 
-
   public async finishSequence() {
     await this.fadeOutAudio(this.audioTrack, (this.finishingSquenceSeconds) * 1000);
     this.stopRace();
@@ -64,37 +63,34 @@ export class Game {
     this.raceStarted.set(true);
   }
 
-
-
   public fadeOutAudio(audio: HTMLAudioElement, duration: number): Promise<void> {
-  return new Promise((resolve) => {
-    const startVolume = audio.volume;
-    const start = performance.now();
+    return new Promise((resolve) => {
+      const startVolume = audio.volume;
+      const start = performance.now();
 
-    const step = (now: number) => {
-      const progress = Math.min((now - start) / duration, 1);
+      const step = (now: number) => {
+        const progress = Math.min((now - start) / duration, 1);
 
-      audio.volume = startVolume * (1 - progress);
+        audio.volume = startVolume * (1 - progress);
 
-      if (progress < 1) {
-        requestAnimationFrame(step);
-      } else {
-        audio.volume = 0;
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          audio.volume = 0;
 
-        // Give the browser one more frame before pausing.
-        requestAnimationFrame(() => {
-          // audio.pause();
-          // audio.currentTime = 0;
-          // audio.volume = startVolume;
-          resolve();
-        });
-      }
-    };
+          // Give the browser one more frame before pausing.
+          requestAnimationFrame(() => {
+            // audio.pause();
+            // audio.currentTime = 0;
+            // audio.volume = startVolume;
+            resolve();
+          });
+        }
+      };
 
-    requestAnimationFrame(step);
-  });
-}
-
+      requestAnimationFrame(step);
+    });
+  }
 
 }
 
