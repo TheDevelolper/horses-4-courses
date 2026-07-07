@@ -14,7 +14,7 @@ export class Game {
 
   public raceStore = inject(RaceStore);
 
-  private audioTrack = new Audio('/wto.mp3');
+  private audioTrack = new Audio('wto.mp3');
   private finishing = signal(false);
   private finishingSquenceSeconds = 3;
   private raceDuration = 90;
