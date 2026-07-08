@@ -1,12 +1,17 @@
 <img
   src="logo.png"
   class="game-logo"
-  [class.hidden]="this.raceStore.started()"
+  [class.hidden]="this.showHomeScreen() == false"
   alt="Horses for Courses logo featuring a smiling cartoon horse"
 />
-<button class="start" [class.hidden]="this.raceStore.started()" (click)="startRace()"></button>
 
-<div class="race-container" [class.hidden]="!this.raceStore.started()">
+<button
+  class="start"
+  [class.hidden]="this.showHomeScreen() == false"
+  (click)="startRace()"
+></button>
+
+<div class="race-container" [class.hidden]="this.showHomeScreen()">
   <ui-race> </ui-race>
 
   <small class="music-credits">

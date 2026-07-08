@@ -9,12 +9,14 @@ import { RaceComponent, RaceStore } from 'ui-components';
   styleUrl: './game.css',
 })
 export class Game {
-  public raceStore = inject(RaceStore);
+  public showHomeScreen = signal(true); //todo: should really be replaced by our own game state with stages.
 
+  public raceStore = inject(RaceStore);
   private audioTrack = new Audio('wto.mp3');
   private finishing = signal(false);
   private finishingSquenceSeconds = 3;
-  private raceDuration = 90;
+  private raceDuration = 3;
+  private temporaryWait = 10000; //todo: This is temporary. I'll probably split out the leaderboard later so the game can display it separately. will do for now.
 
   constructor() {
     this.audioTrack.preload = 'auto';
@@ -47,6 +49,10 @@ export class Game {
   }
 
   public stopRace() {
+    setTimeout(() => {
+      this.showHomeScreen.set(true);
+    }, this.temporaryWait);
+
     this.raceStore.stopRace();
     this.finishing.set(false);
     this.audioTrack.pause();
@@ -55,6 +61,8 @@ export class Game {
   }
 
   public startRace() {
+    this.showHomeScreen.set(false);
+    this.finishing.set(false);
     this.raceStore.startRace();
     this.audioTrack.volume = 1;
     this.audioTrack.currentTime = 0;
