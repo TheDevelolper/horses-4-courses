@@ -10,6 +10,9 @@ See the [Demo here](https://thedevelolper.github.io/horses-4-courses/)
 - [x] Creating a component library for the game (`ui-components`)
 - [x] Deploying to GitHub Pages using GitHub Actions
 - [ ] A Leaderboard component that reads from the state
+- [ ] Replace `showHomeScreen` signal with proper game state stages (`game.ts:12`)
+- [ ] Split out leaderboard display from game component so it can be shown independently (`game.ts:19`)
+- [ ] Complete the `finishSequence` method — currently left unfinished (`game.ts:46`)
 
 ## Getting Started
 
