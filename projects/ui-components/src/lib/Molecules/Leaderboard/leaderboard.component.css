@@ -1,0 +1,15 @@
+.leaderboard-container {
+  border: 1px solid #ff0000;
+  padding: 0.25rem 1rem;
+
+  max-width: min(100%, 30rem);
+}
+
+.leaderboard-row {
+  padding: 0.25rem;
+  width: 100%;
+  &:nth-child(even) {
+    background: oklch(0.7 0.1 63);
+    color: white;
+  }
+}
