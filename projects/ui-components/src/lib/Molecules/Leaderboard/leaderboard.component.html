@@ -1,32 +1,23 @@
-<h2>Leaderboard</h2>
-
-<div class="leaderboard-container">
-  <div class="leaderboard-row">
-    <div class="leaderboard-position">1</div>
-    <div class="leaderboard-name"></div>
+<div class="noticeboard">
+  <div class="noticeboard-header">
+    <span class="pin"></span>
+    <h2 class="noticeboard-title">Leaderboard</h2>
   </div>
-  <div class="leaderboard-row">
-    <div class="leaderboard-position">2</div>
-    <div class="leaderboard-name"></div>
-  </div>
-  <div class="leaderboard-row">
-    <div class="leaderboard-position">3</div>
-    <div class="leaderboard-name"></div>
-  </div>
-  <div class="leaderboard-row">
-    <div class="leaderboard-position">4</div>
-    <div class="leaderboard-name"></div>
-  </div>
-  <div class="leaderboard-row">
-    <div class="leaderboard-position">5</div>
-    <div class="leaderboard-name"></div>
-  </div>
-  <div class="leaderboard-row">
-    <div class="leaderboard-position">6</div>
-    <div class="leaderboard-name"></div>
-  </div>
-  <div class="leaderboard-row">
-    <div class="leaderboard-position">7</div>
-    <div class="leaderboard-name"></div>
+  <div class="leaderboard-table" role="table" aria-label="Race leaderboard">
+    <div class="leaderboard-head" role="row">
+      <div class="col-pos" role="columnheader">Pos</div>
+      <div class="col-name" role="columnheader">Horse</div>
+    </div>
+    @for (entry of raceStore.leaderboard(); track entry.number) {
+      <div class="leaderboard-row" role="row">
+        <div class="col-pos" role="cell">
+          <span class="position-badge">{{ entry.position }}</span>
+        </div>
+        <div class="col-name" role="cell">
+          <span class="horse-name">{{ entry.name }}</span>
+          <span class="horse-number">(#{{ entry.number }})</span>
+        </div>
+      </div>
+    }
   </div>
 </div>
