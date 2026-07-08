@@ -1,4 +1,5 @@
-<div class="race">
+<div class="race-container">
+  <ui-leaderboard></ui-leaderboard>
   <ui-racecourse [moving]="raceStore.started()">
     @for (participant of raceStore.participants(); track participant.id; let idx = $index) {
       <div

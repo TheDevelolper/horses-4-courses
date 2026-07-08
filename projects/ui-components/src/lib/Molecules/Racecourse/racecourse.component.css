@@ -19,7 +19,7 @@
 
   &.background {
     z-index: 10;
-    margin-top: -2rem;
+    margin-top: 5rem;
     &.animating {
       animation: scrollFence 2s linear infinite;
     }
