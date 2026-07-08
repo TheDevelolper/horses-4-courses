@@ -9,9 +9,6 @@ import { RaceComponent, RaceStore } from 'ui-components';
   styleUrl: './game.css',
 })
 export class Game {
-  // public raceStarted = signal(false);
-  // public racing = signal(false);
-
   public raceStore = inject(RaceStore);
 
   private audioTrack = new Audio('wto.mp3');
@@ -26,12 +23,6 @@ export class Game {
       if (this.raceStore.started()) {
         this.audioTrack.play().catch((err) => console.error(err));
       }
-
-      // if (this.raceStarted() && this.racing() === false) {
-      //   this.racing.set(true);
-      //   this.audioTrack.play().catch((err) => console.error(err));
-      //   this.audioTrack.addEventListener('timeupdate', this.onAudioTimerUpdate);
-      // }
     });
   }
 
