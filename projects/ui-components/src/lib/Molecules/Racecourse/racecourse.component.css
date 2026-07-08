@@ -1,7 +1,7 @@
 .racecourse {
   z-index: 20;
   position: relative;
-  margin-top: -5.5rem;
+  margin-top: -7.5rem;
   background: rgb(122, 163, 122);
   height: 14rem;
   width: 100%;
@@ -19,7 +19,8 @@
 
   &.background {
     z-index: 10;
-    margin-top: 5rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
     &.animating {
       animation: scrollFence 2s linear infinite;
     }
