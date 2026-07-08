@@ -41,6 +41,7 @@ export class Game {
   };
 
   public async finishSequence() {
+    //todo: Left unfinished for now.
     await this.fadeOutAudio(this.audioTrack, this.finishingSquenceSeconds * 1000);
     this.stopRace();
   }
@@ -57,6 +58,7 @@ export class Game {
     this.raceStore.startRace();
     this.audioTrack.volume = 1;
     this.audioTrack.currentTime = 0;
+    this.audioTrack.addEventListener('timeupdate', this.onAudioTimerUpdate);
   }
 
   public fadeOutAudio(audio: HTMLAudioElement, duration: number): Promise<void> {
