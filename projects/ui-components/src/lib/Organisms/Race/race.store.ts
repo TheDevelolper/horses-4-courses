@@ -34,10 +34,12 @@ const participants = [1, 2, 3, 4, 5].map<RaceParticipant>((x) => ({
 export type RaceState = {
   participants: RaceParticipant[];
   started: boolean;
+  results: LeaderboardEntry[];
 };
 const initialState: RaceState = {
   participants,
   started: false,
+  results: [],
 };
 
 export type LeaderboardEntry = {
@@ -55,8 +57,13 @@ export const RaceStore = signalStore(
     leaderboard: computed(() => {
       const participants = store.participants();
       const started = store.started();
+      const results = store.results();
 
       if (!started) {
+        if (results.length) {
+          return results;
+        }
+
         return participants
           .slice()
           .sort((a, b) => a.number - b.number)
@@ -85,6 +92,7 @@ export const RaceStore = signalStore(
 
       patchState(store, {
         started: true,
+        results: [],
       });
 
       participantMovementInterval = setInterval(() => {
@@ -104,8 +112,19 @@ export const RaceStore = signalStore(
 
       clearInterval(participantMovementInterval);
 
+      const finalResults = store
+        .participants()
+        .slice()
+        .sort((a, b) => b.xpos - a.xpos)
+        .map((p, i) => ({
+          position: i + 1,
+          name: p.name,
+          number: p.number,
+        }));
+
       patchState(store, {
         started: false,
+        results: finalResults,
         participants: store.participants().map((p) => ({
           ...p,
           xpos: 0,

@@ -16,7 +16,7 @@ export class Game {
   private finishing = signal(false);
   private finishingSquenceSeconds = 3;
   private raceDuration = 90;
-  private temporaryWait = 10000; //todo: This is temporary. I'll probably split out the leaderboard later so the game can display it separately. will do for now.
+  private temporaryWait = 20000; //todo: This is temporary. I'll probably split out the leaderboard later so the game can display it separately. will do for now.
 
   constructor() {
     this.audioTrack.preload = 'auto';
