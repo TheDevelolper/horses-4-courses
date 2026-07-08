@@ -1,5 +1,22 @@
+<img
+  src="logo.png"
+  class="game-logo"
+  [class.hidden]="this.raceStore.started()"
+  alt="Horses for Courses logo featuring a smiling cartoon horse"
+/>
 <button class="start" [class.hidden]="this.raceStore.started()" (click)="startRace()"></button>
-<div class="race-container">
+
+<div class="race-container" [class.hidden]="!this.raceStore.started()">
   <ui-race> </ui-race>
+
+  <small class="music-credits">
+    Music © 2025
+    <a href="https://www.gregorquendel.com" target="_blank" rel="noopener"> Gregor Quendel </a>
+    /
+    <a href="https://www.classicals.de" target="_blank" rel="noopener"> Classicals.de </a>
+    — Licensed under
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">
+      CC BY-NC 4.0 </a
+    >.
+  </small>
 </div>
-<img src="finish.png" class="finish-flag hidden" />
