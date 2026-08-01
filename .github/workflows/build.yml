@@ -25,7 +25,7 @@ jobs:
 
       - run: npx ng build horses-4-courses-game --base-href /horses-4-courses/
 
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         if: github.ref == 'refs/heads/master'
         with:
           path: dist/horses-4-courses-game/browser
